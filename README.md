@@ -82,3 +82,28 @@ The CSA-GSL module utilizes the ProGNN framework guided by CancerSEA functional 
 * Graph Sparsity ($\alpha$): Set to `5e-4` to remove spurious edges caused by technical noise in scRNA-seq while preserving key functional connections.
 * Neighborhood Consistency ($k_s/k_t$): A higher $k_s$ (15) is used for Bulk data to capture broader population traits, while a more focused $k_t$ (10) is applied to single-cell data to accommodate higher granularity.
 * Cell-State Guidance: The inclusion of **CancerSEA** pre-trained functional states allows the model to utilize the $\lambda$ weight more effectively, aligning the learned topology with biological functional clusters (e.g., EMT, Hypoxia).
+
+## Tainning Model --CSGDA
+### Run Code
+To train DAGFormer on your dataset, you can run the following command:
+
+```bash
+python main.py --cuda 0 -d PLX4720
+```
+
+### ⚙️ CSGDA Model Training Hyperparameters
+The following table summarizes the hyperparameter configuration for the CSGDA training process. The model incorporates a dynamic weighting strategy to balance supervised classification, domain adaptation, and target domain entropy minimization.
+| Parameter (Argument) | Description | Value |
+| :--- | :--- | :--- |
+| Learning Rate (lr) | Initial learning rate for the Adam optimizer | 1e-2 |
+| Weight Decay | L2 regularization applied to all model parameters | 5e-4 |
+| Epochs (n_epoch) | Total number of training iterations | 200 |
+| Hidden Dim (hidden) | Hidden units in the Graph Transformer (GT) encoder | 1024 |
+| Graph Feature (gfeat) | Dimension of the shared latent embedding | 256 |
+| Dropout Rate (dropout) | Dropout probability for latent layers and GRL | 0.5 |
+| Lambda Overlap | Weight for the Overlap Penalty Loss on source domain | 1.0 |
+| Lambda CE | Weight for the Cross-Entropy classification loss | 1.0 |
+| Lambda Domain (lambda_d) | Base weight for Domain Adaptation Loss | 0.6 (max) |
+| Lambda Entropy | Weight for Target Domain Entropy Loss | 0.1 (max) |
+| GRL Rate | Gradient Reversal Layer scaling factor | Schedule: min((epoch+1)/n_epoch, 0.05) |
+| Classes | Number of categories (Sensitive vs. Resistant) | 2 |
