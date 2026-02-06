@@ -103,7 +103,7 @@ The following table summarizes the hyperparameter configuration for the CSGDA tr
 | Dropout Rate (dropout) | Dropout probability for latent layers and GRL | 0.5 |
 | Lambda Overlap | Weight for the Overlap Penalty Loss on source domain | 1.0 |
 | Lambda CE | Weight for the Cross-Entropy classification loss | 1.0 |
-| Lambda Domain (lambda_d) | Base weight for Domain Adaptation Loss | 0.6 (max) |
-| Lambda Entropy | Weight for Target Domain Entropy Loss | 0.1 (max) |
+| Lambda Domain (lambda_d) | Base weight for Domain Adaptation Loss | 0.6 |
+| Lambda Entropy | Weight for Target Domain Entropy Loss | 0.1 |
 | GRL Rate | Gradient Reversal Layer scaling factor | Schedule: min((epoch+1)/n_epoch, 0.05) |
 | Classes | Number of categories (Sensitive vs. Resistant) | 2 |
