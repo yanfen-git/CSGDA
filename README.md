@@ -1,6 +1,6 @@
 # CSGDA
 > **CSGDA: A Cell State-Guided Graph Domain Adaptation Network for Single-Cell Drug Response Prediction**
-## Abstract
+## 📖 Abstract
 Intratumoral heterogeneity drives cancer recurrence and metastasis, yet single-cell drug response prediction faces severe "cross-domain" challenges, such as applying in vitro models to in vivo tissues or inferring metastatic resistance from primary tumors. These scenarios trigger catastrophic distribution shifts arising from heterogeneous sequencing platforms, distinct tissue microenvironments, and metastatic evolution—problems rarely addressed by existing methods. We introduce CSGDA, a cell state-guided graph domain adaptation framework designed to predict drug responses across these biological heterogeneities. CSGDA incorporates biological priors to map gene expression into functional cell states, guiding a structure learning module to construct robust cell topology. To conquer distribution shifts, the model employs graph domain adaptation combined with a novel overlap penalty mechanism. Extensive benchmarks on five scRNA-seq datasets demonstrate that CSGDA outperforms state-of-the-art methods, achieving an average gain of ~6% in ACC and AUPR. Beyond prediction accuracy, we employed integrated gradients to effectively pinpoint key genes involved in drug resistance within a challenging cross-metastasis cisplatin dataset. These findings underscore CSGDA’s superior performance in single-cell drug response prediction and its potential in resolving single-cell heterogeneity, paving the way for precision therapeutic strategies. 
 
 ![CSGDA](./CSGDA.png)
@@ -8,7 +8,7 @@ Intratumoral heterogeneity drives cancer recurrence and metastasis, yet single-c
 ## 📂 Dataset
 The original and preprocessed datasets can be found at:[Google Drive Dataset Link](https://drive.google.com/drive/folders/1dDnOLZRCkdSpsqL0npdFwwA5GHixgGC-?usp=drive_link)
 
-## 📖 Abstract
+## 💻 Computational Environment
 * **Hardware**: Intel Xeon 16-core CPU, 128 GB RAM, NVIDIA GeForce RTX 3090 GPU (24 GB VRAM).
 * **OS**: Ubuntu 22.04 LTS.
 * **Software**: Python 3.10, CUDA 12.1.
