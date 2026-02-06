@@ -85,10 +85,22 @@ The CSA-GSL module utilizes the ProGNN framework guided by CancerSEA functional 
 
 ## Tainning Model --CSGDA
 ### Run Code
-To train DAGFormer on your dataset, you can run the following command:
+To train CSGDA on your dataset, you can run the following command:
 
 ```bash
 python main.py --cuda 0 -d PLX4720
+
+# 运行时传的 --drug_name 要能在 drug_config 里找到，比如：
+#
+# python xx.py -d PLX4720
+#
+# python xx.py -d paclitaxel
+#
+# python xx.py -d paclitaxel+atezolizumab
+#
+# python xx.py -d cisplatin
+#
+# 如果要用 2 号文件夹的 451Lu→A375，就用 -d plx4720_a375
 ```
 
 ### ⚙️ CSGDA Model Training Hyperparameters
